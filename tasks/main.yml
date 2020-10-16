@@ -59,6 +59,7 @@
     state: stopped
   when:
     - ntp_enabled | bool
+    - ansible_distribution != 'FreeBSD'
     - '"systemd-timesyncd.service" in services'
 
 - name: Ensure NTP is running and enabled as configured.
